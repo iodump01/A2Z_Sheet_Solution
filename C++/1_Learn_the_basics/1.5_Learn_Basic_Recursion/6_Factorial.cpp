@@ -1,21 +1,25 @@
 // https://bit.ly/3QugUVo
-
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
+long long fact(long long N){
+        if(N<=1)return N;
+        return N*fact(N - 1);
+    }
 vector<long long> factorialNumbers(long long N)
-    {
-        // Write Your Code here
-        vector<long long> f;
-        f.push_back(1);
-        if(N == 1) return f;
-        f.push_back(2);
-        for(int i = 3; i < N; i++){
-            long long ans = i* f[i-2];
-            if(ans > N) break;
-            f.push_back(ans);
+    {   
+        vector<long long> ans;
+        for(int i = 1;i<=N;i++){
+            long long F = fact(i);
+            if(fact(i) <N)ans.push_back(fact(i));
+            else if(F == N){
+                ans.push_back(F);
+                break;
+            }
+            else break;
+            
         }
-        return f;
+        return ans;
     }
 
 int main(){
