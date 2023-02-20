@@ -1,13 +1,13 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void rev(int i,int a[],int n)
+void reverseArray(int i,int a[],int n)
 {
     if(i>=n){
         return;
     }
     swap(a[i],a[n]);
-    rev(i+1,a,n - 1);
+    reverseArray(i+1,a,n - 1);
 }
 
 int main()
@@ -16,7 +16,7 @@ int main()
     cin>>n;
     int a[n];
     for(int i = 0;i<n;i++)cin>>a[i];
-    rev(0,a,n - 1);
+    reverseArray(0,a,n - 1);
 
     for(int i=0;i<n;i++)cout<<a[i]<<" ";
 
